@@ -1,7 +1,9 @@
 <% layout('layout/boilerplate')%>
 <link rel="stylesheet" href="/styles/stars.css">
+
 <div class="row mb-5">
     <div class="col-6">
+      <div id='map' style='width: 100%; height: 300px;'></div>
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <% campground.images.forEach((img, i) => {%>
@@ -20,7 +22,7 @@
         </a>
       </div>
 
-        <div class="card mb-3" style="width: 35rem;">
+        <div class="card mb-3">
             <div class="card-body">
               <h5 class="card-title"><%= campground.title %></h5>
               <p class="card-text"><%= campground.description %></p>
@@ -87,4 +89,9 @@
           <% } %>
     </div>
 </div>
+<script>
+  const mapToken ='<%-process.env.MAPBOX_TOKEN%>';
+  const campground = <%-JSON.stringify(campground)%>;
+</script>
+<script src="/javascript/showpagemap.js"> </script>
     
