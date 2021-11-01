@@ -6,6 +6,7 @@ style: 'mapbox://styles/mapbox/streets-v11',
 center:campground.geometry.coordinates,
 zoom: 9 
 });
+map.addControl(new mapboxgl.NavigationControl());
 
 new mapboxgl.Marker()
 .setLngLat(campground.geometry.coordinates)
